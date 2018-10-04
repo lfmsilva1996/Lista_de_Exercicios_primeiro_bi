@@ -1,0 +1,296 @@
+/*-----------------Exercicio_1------------------*/
+//Desenvolvido por: Luis Fernando Machado
+//Desenvolvido por: Lucas Junio
+
+#include "pch.h"
+#include <iostream>
+#include <stdio.h>
+#include <malloc.h>
+#include <stdio.h>
+
+//Estrutura
+
+struct lista {
+
+	int info;
+	struct lista * prox;
+};
+typedef struct lista Lista;
+
+//Função para inicializar a lista
+
+Lista * inicializa(void) {
+	return NULL;
+}
+//inserir nó no inicio da lista
+
+Lista * inserir(Lista * lst, int valor) {
+	Lista *novo = (Lista *)malloc(sizeof(Lista));
+
+	novo->info = valor;
+	novo->prox = lst;
+
+	return novo;
+}
+
+//Função para separar lista ao meio
+
+Lista* separa(Lista* l, int n) {
+	Lista * separa = (Lista *)malloc(sizeof(Lista));
+	Lista * p;
+	Lista * x;
+
+	for (p = l; p != NULL; p = p->prox)
+
+		if (p->info == n)
+		{
+			x = p->prox;
+			p->prox = NULL;
+			return x;
+		}
+	return NULL;
+}
+
+//função para imprimir a lista
+
+void imprime(Lista * l) {
+	Lista * p = l;
+	int no = 1;
+
+	while (p != NULL) {
+		printf("No: %2 - Endereco: (%p) Valor: %3d |Proximo:(%p) ->\n", no, p->info, p, p->prox);
+		p = p->prox;
+		no++;
+	}
+	printf("\n");
+}
+
+
+//função principal
+		int main()
+		{
+			Lista * novalista;
+
+			novalista = inicializa();
+
+			novalista = inserir(novalista, 1);
+			novalista = inserir(novalista, 12);
+			novalista = inserir(novalista, 5);
+			novalista = inserir(novalista, 17);
+			novalista = inserir(novalista, 3);
+
+			printf("Primeira Lista...\n");
+			imprime(novalista);
+
+			novalista = separa(novalista, 5);
+			printf("Lista separada...\n");
+			imprime(novalista);
+
+			system("pause");
+			
+
+/*-----------------Exercicio_2------------------*/
+//Desenvolvido por: Luis Fernando Machado
+
+//Criar um vetor e armazenar os valores do vetor dentro do nó
+#include "pch.h"
+#include <iostream>
+#include <stdlib.h>
+#include <malloc.h>
+#include <stdio.h>
+
+//Estrutura da lista
+
+struct lista
+{
+	int info;
+	struct lista *prox;
+};
+typedef struct lista Lista;
+
+// Função para inicializar a lista
+
+Lista *inicializa(void) {
+	return NULL;
+}
+
+//função para inserir um nó no inicio da lista
+
+Lista * inserir(Lista * lst, int valor) {
+	Lista *novo = (Lista *)malloc(sizeof(Lista));
+
+	novo->info = valor;
+	novo->prox = lst;
+
+	return novo;
+}
+
+//inserir nó no final da lista
+
+Lista* inserirFinal(Lista* lst, int v) {
+	Lista* p = lst;
+	Lista* novo = (Lista *)malloc(sizeof(Lista));
+
+	while (p->prox != NULL) {
+		p = p->prox;
+	}
+
+	novo->info = v;
+	novo->prox = NULL;
+	p->prox = novo;
+
+	return lst;
+}
+//função para inserir um nó em uma determinada posição
+
+Lista *inserirPosição(Lista * lst, int pos, int valor) {
+	int cont = 1;
+	Lista * p = lst;
+	Lista * novo = (Lista*)malloc(sizeof(Lista));
+
+	while (cont != pos) {
+		p = p->prox;
+		cont++;
+	}
+
+	novo->info = valor;
+	novo->prox = p->prox;
+	p->prox = novo;
+
+	return lst;
+}
+//função do vetor
+
+Lista * constroi(int i, int* v);
+Lista* list;
+Lista* p = list;
+
+int vt[5] = {3, 8, 1, 7, 2};
+
+
+if (inserir != 3 or 8 or 1 or 7 or 2) {
+	return NULL;
+}
+
+Lista * vetor = (Lista*)malloc(sizeof(Lista));  
+return list;
+
+//função para imprimir lista
+
+void imprime(Lista * l) {
+	Lista * p = l;
+	int no = 1; 
+
+	while (p != NULL) {
+		printf("No %2 - Endereço: (%p) Valor: %3d prox:(%p) ->\n", no, p->info, p, p->prox);
+		p = p->prox;
+		no++;
+	}
+	printf("\n");
+
+
+}
+//função principal
+int main()
+{
+	Lista * novalista;
+
+	novalista = inicializa();
+
+	novalista = inserir(novalista, 55);
+	novalista = inserir(novalista, 27);
+	novalista = inserir(novalista, 35);
+
+	printf("Lista com valores...\n");
+	imprime(novalista);
+
+	printf("Lista com valores do vetor...\n");
+	novalista = constroi(novalista, vt);
+	imprime(novalista);
+	system("pause");
+}
+/*-----------------Exercicio_3------------------*/
+//Desenvolvido por: Lucas Junio
+
+#include "stdafx.h"
+#include <iostream>
+#include <stdlib.h>
+#include <malloc.h>
+#include <stdio.h>
+
+
+struct lista {
+int info;
+struct lista* prox;
+};
+
+typedef struct lista Lista;
+lista* inicializa(void) {
+return NULL;
+}
+
+
+//adiciona um novo nó na lista
+Lista* inserir(Lista* lst, int valor) {
+Lista* novo = (Lista*)malloc(sizeof(Lista));
+
+	novo->info = valor;
+	novo->prox = lst;
+
+/*if (comp (lst) remov lista)
+
+lista* 
+		*/
+		return novo;		
+}
+
+
+//imprimi a lista
+
+void imprime(Lista * l) {
+	Lista * p = l;
+	int no = 1;
+
+	Lista * novo = (Lista*)malloc(sizeof(Lista));
+
+	while (p != NULL) {
+		printf("No %2 - Endereco: (%p) Valor: %3d Proximo:(%p) ->\n", no, p->info, p, p->prox);
+		p = p->prox;
+		no++;
+	}
+}
+
+//função principal 
+	int main(){
+		Lista * nlista;
+
+		nlista = inicializa();
+		nlista = inserir(nlista, -10);
+		nlista = inserir(nlista, -20);
+		nlista = inserir(nlista, +30);
+		printf("Lista...\n");
+		imprime(nlista);
+   printf("Lista...\n");
+		imprime(nlista) >null;
+// remoção
+(voide) lista* nLista;
+int valor
+pont ant *pont prox;
+printf ("valor a ser removido");
+if atu =lista +30 *d pos =+30 lista = return lst (null);
+imprime *lista = null);
+		system("pause");
+		return 0;
+}
+//função para retornar a lista vazia
+if (nlista*) >(-10,-20,+30) return lista* (lst) l, null;
+//lista apresentada vazia
+lista* inicializa(void) {
+return NULL;
+}
+//função para imnprimir
+{
+imprime *lista = null);
+break;
+}
+return 0;
